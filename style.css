@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: wheat;
+
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.atm{
+    box-sizing: border-box;
+    border: 2px solid grey;
+    background-color: rgb(152, 152, 152);
+    width: 1000px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.atm--buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 100px;
+    width: 100px;
+    height: 600px;
+}
+.button {
+    width: 80px;
+    height: 50px;
+}
+.button--link{
+    width: 80px;
+    height: 50px;
+    background-color: rgb(239, 239, 239);
+    box-sizing: border-box;
+    border: 2px solid rgb(64, 64, 64);
+}
+.button--link:active{
+    background-color: rgb(202, 202, 202);
+}
+
+.atm--display--balance, .atm--display{
+    width: 600px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 2px solid grey;
+    background-color: rgb(170, 185, 194);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding-left: 20px;
+    padding-top: 60px;
+}
+.atm--display--balance--text, .atm--display--title{
+    font-size: 25px; 
+    text-transform: uppercase;
+}
+.atm--display--balance--bottom, .atm--display--bottom   {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 60px;
+    font-size: 20px; 
+    text-transform: uppercase;
+}
+.atm--input{
+    margin-top: 10px;
+    font-size: 30px;
+    width: 550px;
+    height: 50px;
+}
