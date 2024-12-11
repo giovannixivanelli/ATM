@@ -10,6 +10,8 @@ if (currenBalanceDisplay) {
     currenBalanceDisplay.textContent = currenBalance;
 }
 
+let balanceText = document.querySelector('.balance--text');
+
 // Логика для внесения суммы на странице deposit.html
 let confirmDeposit = document.querySelector('.confirm__deposit--button');
 let inputData = document.querySelector('.atm--input');
@@ -21,14 +23,22 @@ if (confirmDeposit) {
         if (Number.isInteger(enteredSumm) && enteredSumm > 0) {
             currenBalance += enteredSumm; // Обновляем баланс
             localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
-            alert(`Баланс обновлен: ${currenBalance} рублей`);
+            setTimeout(() => {
+                balanceText.textContent = `Вы внесли ${enteredSumm} руб. Ваш баланс ${currenBalance}`;
+            }, 500);
         } else {
-            alert('Введите корректное положительное число!');
+            setTimeout(() => {
+                balanceText.textContent = 'Введите корректное положительное число!';
+            }, 500);
+            setTimeout(() => {
+                balanceText.textContent = '';
+            }, 2500);
         }
 
         inputData.value = ""; // Очищаем поле ввода
     });
 }
+
 
 // Логика для выведения суммы на странице withdraw.html
 
@@ -40,14 +50,29 @@ if (confirmWithdraw) {
 
         if (Number.isInteger(enteredSumm) && enteredSumm > 0) {
             if (currenBalance < enteredSumm) {
-                alert('На карте недостаточно средств');
+                setTimeout(() => {
+                    balanceText.textContent = 'На карте недостаточно средств';
+                }, 200);
+                setTimeout(() => {
+                    balanceText.textContent = '';
+                }, 1500);
+                setTimeout(() => {
+                    balanceText.textContent = `Ваш баланс: ${currenBalance} рублей`;
+                }, 1600);
             } else {
                 currenBalance -= enteredSumm; // Обновляем баланс
                 localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
-                alert(`Баланс обновлен: ${currenBalance} рублей`);
+                setTimeout(() => {
+                    balanceText.textContent = `Вы сняли ${enteredSumm} руб. Ваш баланс ${currenBalance}`;
+                }, 500);
             }
         } else {
-            alert('Введите корректное положительное число!');
+            setTimeout(() => {
+                balanceText.textContent = 'Введите корректное положительное число!';
+            }, 500);
+            setTimeout(() => {
+                balanceText.textContent = '';
+            }, 2500);
         }
 
         inputData.value = ""; // Очищаем поле ввода
