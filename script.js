@@ -39,9 +39,13 @@ if (confirmWithdraw) {
         let enteredSumm = parseInt(inputData.value);
 
         if (Number.isInteger(enteredSumm) && enteredSumm > 0) {
-            currenBalance -= enteredSumm; // Обновляем баланс
-            localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
-            alert(`Баланс обновлен: ${currenBalance} рублей`);
+            if (currenBalance < enteredSumm) {
+                alert('На карте недостаточно средств');
+            } else {
+                currenBalance -= enteredSumm; // Обновляем баланс
+                localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
+                alert(`Баланс обновлен: ${currenBalance} рублей`);
+            }
         } else {
             alert('Введите корректное положительное число!');
         }
