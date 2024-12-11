@@ -11,6 +11,9 @@ if (currenBalanceDisplay) {
 }
 
 let balanceText = document.querySelector('.balance--text');
+balanceText.style.fontSize = '25px';
+balanceText.style.textAlign = 'center';
+balanceText.style.textTransform = 'uppercase';
 
 // Логика для внесения суммы на странице deposit.html
 let confirmDeposit = document.querySelector('.confirm__deposit--button');
@@ -29,7 +32,7 @@ if (confirmDeposit) {
                 balanceText.textContent = `Вы внесли ${enteredSumm} ₽`;
             }, 500);
             setTimeout(() => {
-                balanceText.textContent = `Ваш баланс ${currenBalance} ₽`;
+                balanceText.textContent = `Ваш баланс: ${currenBalance} ₽`;
             }, 3000);
         } else {
             setTimeout(() => {
@@ -75,7 +78,7 @@ if (confirmWithdraw) {
                     balanceText.textContent = `Вы сняли ${enteredSumm} ₽`;
                 }, 500);
                 setTimeout(() => {
-                    balanceText.textContent = `Ваш баланс ${currenBalance} ₽`;
+                    balanceText.textContent = `Ваш баланс: ${currenBalance} ₽`;
                 }, 3000);
             }
         } else {
