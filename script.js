@@ -24,7 +24,7 @@ if (confirmDeposit) {
             currenBalance += enteredSumm; // Обновляем баланс
             localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
             setTimeout(() => {
-                balanceText.textContent = `Вы внесли ${enteredSumm} руб. Ваш баланс ${currenBalance}`;
+                balanceText.textContent = `Вы внесли ${enteredSumm} руб. Ваш баланс ${currenBalance} руб.`;
             }, 500);
         } else {
             setTimeout(() => {
@@ -63,7 +63,7 @@ if (confirmWithdraw) {
                 currenBalance -= enteredSumm; // Обновляем баланс
                 localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
                 setTimeout(() => {
-                    balanceText.textContent = `Вы сняли ${enteredSumm} руб. Ваш баланс ${currenBalance}`;
+                    balanceText.textContent = `Вы сняли ${enteredSumm} руб. Ваш баланс ${currenBalance} руб.`;
                 }, 500);
             }
         } else {
