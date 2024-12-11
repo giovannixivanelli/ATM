@@ -84,7 +84,7 @@ body{
 .atm--display--balance--text, .atm--display--title{
     font-size: 25px; 
     text-transform: uppercase;
-    line-height: 25px;
+    line-height: 30px;
     text-align: center;
 }
 .atm--display--balance--bottom, .atm--display--bottom   {
