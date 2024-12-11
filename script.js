@@ -18,9 +18,11 @@ let inputData = document.querySelector('.atm--input');
 
 if (confirmDeposit) {
     confirmDeposit.addEventListener('click', function () {
-        let enteredSumm = parseInt(inputData.value);
+        let enteredSumm = inputData.value.trim();
 
-        if (Number.isInteger(enteredSumm) && enteredSumm > 0) {
+        // Проверяем, что введено только положительное целое число
+        if (/^\d+$/.test(enteredSumm)) {
+            enteredSumm = parseInt(enteredSumm, 10); // Преобразуем строку в число
             currenBalance += enteredSumm; // Обновляем баланс
             localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
             setTimeout(() => {
@@ -43,15 +45,19 @@ if (confirmDeposit) {
 }
 
 
+
 // Логика для выведения суммы на странице withdraw.html
 
 let confirmWithdraw = document.querySelector('.confirm__withdraw--button');
 
 if (confirmWithdraw) {
     confirmWithdraw.addEventListener('click', function () {
-        let enteredSumm = parseInt(inputData.value);
+        let enteredSumm = inputData.value.trim();
 
-        if (Number.isInteger(enteredSumm) && enteredSumm > 0) {
+        // Проверяем, что введено только положительное целое число
+        if (/^\d+$/.test(enteredSumm)) {
+            enteredSumm = parseInt(enteredSumm, 10); // Преобразуем строку в число
+
             if (currenBalance < enteredSumm) {
                 setTimeout(() => {
                     balanceText.textContent = 'На карте недостаточно средств';
@@ -84,6 +90,7 @@ if (confirmWithdraw) {
         inputData.value = ""; // Очищаем поле ввода
     });
 }
+
 
 // Логика для очистки поля ввода
 let clearSumm = document.querySelector('.clear--button');
