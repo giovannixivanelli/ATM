@@ -24,7 +24,7 @@ if (confirmDeposit) {
         let enteredSumm = inputData.value.trim();
 
         // Проверяем, что введено только положительное целое число
-        if (/^\d+$/.test(enteredSumm)) {
+        if (/^\d+$/.test(enteredSumm) && parseInt(enteredSumm) > 0) {
             enteredSumm = parseInt(enteredSumm, 10); // Преобразуем строку в число
             currenBalance += enteredSumm; // Обновляем баланс
             localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
@@ -36,7 +36,7 @@ if (confirmDeposit) {
             }, 3000);
         } else {
             setTimeout(() => {
-                balanceText.textContent = 'Введите корректное положительное число!';
+                balanceText.textContent = enteredSumm === "0" ? 'Введите сумму, больше 0' : 'Введите корректное положительное число!';
             }, 500);
             setTimeout(() => {
                 balanceText.textContent = '';
@@ -58,7 +58,7 @@ if (confirmWithdraw) {
         let enteredSumm = inputData.value.trim();
 
         // Проверяем, что введено только положительное целое число
-        if (/^\d+$/.test(enteredSumm)) {
+        if (/^\d+$/.test(enteredSumm) && parseInt(enteredSumm) > 0) {
             enteredSumm = parseInt(enteredSumm, 10); // Преобразуем строку в число
 
             if (currenBalance < enteredSumm) {
@@ -71,19 +71,10 @@ if (confirmWithdraw) {
                 setTimeout(() => {
                     balanceText.textContent = `Ваш баланс: ${currenBalance} ₽`;
                 }, 1600);
-            } else {
-                currenBalance -= enteredSumm; // Обновляем баланс
-                localStorage.setItem('balance', currenBalance); // Сохраняем баланс в LocalStorage
-                setTimeout(() => {
-                    balanceText.textContent = `Вы сняли ${enteredSumm} ₽`;
-                }, 500);
-                setTimeout(() => {
-                    balanceText.textContent = `Ваш баланс: ${currenBalance} ₽`;
-                }, 3000);
-            }
+            } 
         } else {
             setTimeout(() => {
-                balanceText.textContent = 'Введите корректное положительное число!';
+                balanceText.textContent = enteredSumm === "0" ? 'Введите сумму, больше 0' : 'Введите корректное положительное число!';
             }, 500);
             setTimeout(() => {
                 balanceText.textContent = '';
